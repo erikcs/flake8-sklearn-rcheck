@@ -7,7 +7,7 @@ requires = [
 ]
 
 setuptools.setup(
-    name='flake8-sklearn-rcheck',
+    name='flake8_sklearn_rcheck',
     version='0.1',
     description="check if `random_state` argument is set, plugin for flake8",
     keywords='flake8 scikit-learn random_state',
