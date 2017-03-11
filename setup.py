@@ -15,7 +15,7 @@ setuptools.setup(
     author_email='erik.fredriksen@phdstudent.hhs.se',
     url='https://github.com/nuffe/flake8-sklearn-rcheck',
     license='MIT',
-    py_modules=['flake8-sklearn-rcheck'],
+    py_modules=['flake8_sklearn_rcheck'],
     zip_safe=False,
     install_requires=requires,
     entry_points={
