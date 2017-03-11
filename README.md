@@ -20,3 +20,9 @@ $ git diff --unified=0 | flake8 --diff --show-source "$*"
   nono = make_classification(1)
          ^
 ```
+
+## Misc
+
+Tested with latest Anaconda + Python 3
+
+As with most problems in static analysis, this tool cannot uncover absolutely all cases
