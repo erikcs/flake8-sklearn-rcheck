@@ -18,7 +18,7 @@ class RandomStateCheck(object):
         takes_random_state = {}
 
         # Load the test source file as a module to be able to introspect and
-        # get the signature of all callables
+        # get the signature of all imported callables
         module = imp.load_source('_', self.filename)
         module_callables = inspect.getmembers(module, lambda x:
                                     inspect.isfunction(x) or inspect.isclass(x))
