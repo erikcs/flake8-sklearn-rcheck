@@ -2,7 +2,7 @@ from __future__ import with_statement
 import setuptools
 
 requires = [
-    "flake8 > 3.0.0",
+    "flake8",
     "scikit-learn"
 ]
 
