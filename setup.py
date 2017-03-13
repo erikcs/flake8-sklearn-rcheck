@@ -2,8 +2,7 @@ from __future__ import with_statement
 import setuptools
 
 requires = [
-    "flake8",
-    "scikit-learn"
+    "flake8"
 ]
 
 setuptools.setup(
