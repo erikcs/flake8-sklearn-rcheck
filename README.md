@@ -8,6 +8,8 @@ The plugin works with Flake8 out of the box
 
 (uninstall the package to remove the plugin)
 
+This plugin needs to be able to import the test file it is linting as a module. So ideally
+this plugin is installed in a virtual environment with the scikit-learn build it is supposed to lint.
 
 ## Example
 
@@ -20,9 +22,6 @@ $ git diff --unified=0 | flake8 --diff --show-source "$*"
   nono = make_classification(1)
          ^
 ```
-
-This plugin needs to be able to import the test file it is linting as a module. So ideally
-this plugin is installed in a virtual environment with the scikit-learn build it is supposed to lint.
 
 ## Misc
 
