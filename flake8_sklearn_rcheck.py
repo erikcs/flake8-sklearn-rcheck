@@ -1,7 +1,10 @@
-from __future__ import print_function
 import ast
 import imp
 import inspect
+import logging
+
+logger = logging.getLogger('flake8_sklearn_rcheck')
+logging.basicConfig(level=logging.ERROR)
 
 class RandomStateCheck(object):
     name = 'sklearn-rcheck'
@@ -21,11 +24,15 @@ class RandomStateCheck(object):
         # Load the test source file as a module to be able to get the
         # signature of all imported callables
         try:
-            module = imp.load_source('_', self.filename)
+            module = imp.load_source('', self.filename)
         except ImportError as e:
-            print(("Could not load the file {} as a module. One likely reason "
-            "is that flake8 was run on a sklearn test file with additions not "
-            "contained in the sklearn version this plugin tries to import"
+            logger.error(("Could not load the file {} as a module. This Flake8"
+            " plugin needs to be able to load the scikit-learn test file it is"
+            " linting as a module in order to get function/class signatures."
+            " Reasons for this error could be: missing packages, or a syntax"
+            " error in the test file. This plugin should ideally be run in a"
+            " virtual environment with the built and installed scikit-learn"
+            " version it is linting, together with its neceassy dependencies."
             ).format(self.filename))
 
             raise e
