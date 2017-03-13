@@ -21,6 +21,9 @@ $ git diff --unified=0 | flake8 --diff --show-source "$*"
          ^
 ```
 
+This plugin needs to be able to import the test file it is linting as a module. So ideally
+this plugin is installed in a virtual environment with the scikit-learn build it is supposed to lint.
+
 ## Misc
 
 Tested with latest Anaconda + Python 3

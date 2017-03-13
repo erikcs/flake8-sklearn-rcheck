@@ -1,3 +1,4 @@
+from __future__ import print_function
 import ast
 import imp
 import inspect
@@ -19,7 +20,16 @@ class RandomStateCheck(object):
 
         # Load the test source file as a module to be able to get the
         # signature of all imported callables
-        module = imp.load_source('_', self.filename)
+        try:
+            module = imp.load_source('_', self.filename)
+        except ImportError as e:
+            print(("Could not load the file {} as a module. One likely reason "
+            "is that flake8 was run on a sklearn test file with additions not "
+            "contained in the sklearn version this plugin tries to import"
+            ).format(self.filename))
+
+            raise e
+
         module_callables = inspect.getmembers(module, lambda x:
                                     inspect.isfunction(x) or inspect.isclass(x))
 
