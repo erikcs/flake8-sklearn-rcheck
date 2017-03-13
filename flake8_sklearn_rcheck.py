@@ -2,6 +2,7 @@ import ast
 import imp
 import inspect
 import logging
+import re
 
 logger = logging.getLogger('flake8_sklearn_rcheck')
 logging.basicConfig(level=logging.ERROR)
@@ -16,7 +17,7 @@ class RandomStateCheck(object):
         self.filename = filename
 
     def run(self):
-        if self.filename.find('test_') == -1:
+        if re.search('/test_', self.filename) is None:
             return
 
         takes_random_state = {}
