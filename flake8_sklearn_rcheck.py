@@ -43,7 +43,8 @@ class RandomStateCheck(object):
 
         for name, obj in module_callables:
             try:
-                if 'random_state' in inspect.signature(obj).parameters:
+                params = inspect.signature(obj).parameters
+                if 'random_state' in params and str(params['random_state']) == 'random_state=None':
                     takes_random_state[name] = True
             except:
                 pass
@@ -64,3 +65,4 @@ class RandomStateCheck(object):
                                    node.col_offset,
                                   'S100 missing random_state argument',
                                   'RandomStateCheck')
+                    
