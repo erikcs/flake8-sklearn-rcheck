@@ -44,7 +44,7 @@ class RandomStateCheck(object):
         for name, obj in module_callables:
             try:
                 params = inspect.signature(obj).parameters
-                if 'random_state' in params and str(params['random_state']) == 'random_state=None':
+                if 'random_state' in params and params['random_state'].default is None:
                     takes_random_state[name] = True
             except:
                 pass
