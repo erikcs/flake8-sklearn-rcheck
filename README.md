@@ -4,7 +4,7 @@ Flake8 plugin for scikit-learn test files: (attempt to) check that estimators se
 
 The plugin works with Flake8 out of the box
 
-`$ pip install git+https://github.com/nuffe/flake8-sklearn-rcheck.git`
+`$ pip install git+https://github.com/erikcs/flake8-sklearn-rcheck.git`
 
 (uninstall the package to remove the plugin)
 
